@@ -1,0 +1,597 @@
+! uMatrix: Ruleset recipes
+! Title: Recipes
+!
+! Assumes the following rules in place:
+!
+! https-strict: * true
+! no-workers: * true
+! noscript-spoof: * true
+! referrer-spoof: * true
+! * * * block
+! * 1st-party css allow
+! * 1st-party image allow
+!
+! Lines starting with character "!" are ignored.
+! Character "_" is an alias for "currently selected scope".
+! An empty line MUST be used to separate distinct ruleset recipes.
+
+
+Google Drive
+  google.com *
+     _ 1st-party *
+     _ apis.google.com script
+     _ docs.google.com script
+     _ www.google.com script
+     _ www.gstatic.com script
+     _ fonts.gstatic.com css
+     _ ssl.gstatic.com image
+        !needed for google sheets
+        no-workers: _ false
+
+Gmail
+  mail.google.com *
+     _ 1st-party *
+     _ googleusercontent.com image
+     _ gstatic.com image
+     _ gstatic.com script
+        ! to remove annoying allow javascript banner
+        noscript-spoof: _ false
+
+Google New ReCaptcha
+ * www.google.com
+     _ www.gstatic.com script
+     _ www.gstatic.com css
+     _ www.gstatic.com image
+     _ www.google.com frame
+     _ www.google.com script
+     _ www.google.com fetch
+     _ www.google.com image
+     _ www.google.com css
+   no-workers: _ false
+    
+hCaptcha
+  * hcaptcha.com
+     _ hcaptcha.com script
+     _ hcaptcha.com fetch
+     _ assets.hcaptcha.com frame
+     _ assets.hcaptcha.com image
+     _ assets.hcaptcha.com css
+
+Google Maps as 3rd Party
+  * maps.googleapis.com
+       _  maps.gstatic.com image
+       _  maps.googleapis.com image
+       _  maps.googleapis.com script
+       _  chart.apis.google.com image
+
+Vimeo as 3rd-party
+  * player.vimeo.com
+     _ vimeo.com script
+     _ vimeo.com image
+     _ akamaized.net image
+     _ 09-lvl3-pdl.vimeocdn.com media
+     _ player.vimeo.com frame
+     _ player.vimeo.com css
+     _ player.vimeo.com fetch
+     _ i.vimeocdn.com image
+     _ vimeocdn.com css
+     _ vimeocdn.com script
+
+Youtube as 3rd-party
+ * youtube.com
+    _ youtube.com image
+    _ youtube.com css
+    _ youtube.com script
+    _ youtube.com frame
+    _ youtube.com fetch
+    _ googlevideo.com fetch
+    _ ytimg.com image
+    _ ytimg.com script
+
+Twitter Third Party
+  * twitter.com
+     _ cdn.syndication.twimg.com script
+     _ pbs.twimg.com image
+     _ platform.twitter.com css
+     _ platform.twitter.com script
+
+Reddit Third Party
+  * reddit.com
+     _ www.reddit.com script
+
+GitHub Third Party
+  * github.com
+     _ gist.github.com script
+     _ assets-cdn.github.com css
+
+Yahoo
+  Yahoo.com *
+     _ 1st-party *
+     _ yimg.com *
+     _ s.yimg.com script
+     _ video.yahoo.com script
+
+Instagram
+  instagram.com *
+     _ 1st-party *
+     _ www.instagram.com script
+     _ cdninstagram.com image
+
+Linkedin
+  linkedin.com *
+     _ 1st-party *
+     _ licdn.com *
+     _ static.licdn script
+     _ www.linkedin.com script
+     _ 1st-party cookie
+
+Pornhub
+  pornhub.com
+     _ 1st-party *
+     _ phncdn.com *
+     _ phncdn.com script
+
+Xvideos
+  xvideos.com *
+     _ 1st-party *
+     _ 1st-party script
+     _ xvideos-cdn.com fetch
+     _ xvideos-cdn.com image
+
+Microsoft.com
+  microsoft.com *
+     _ 1st-party *
+     _ akamaized.net image
+     _ akamaized.net css
+     _ s-microsoft.com image
+     _ s-microsoft.com css
+     _ onestore.ms css
+     _ onestore.ms image
+     _ onestore.ms script
+     _ www.microsoft.com script
+
+Microsoft login 
+  login.live.com *
+     _ 1st-party *
+     _ 1st-party script
+     _ gfx.ms image
+     _ gfx.ms css
+
+Office.com
+  office.com *
+     _ 1st-party *
+     _ akamaized.net image
+     _ akamaized.net css
+     _ msocdn.com image
+     _ msocdn.com css
+     _ msocdn.com script
+     _ onestore.ms css
+     _ query.prod.cms.rt.microsoft.com css
+
+Imgur 3rd-party
+  * imgur.com
+     _ imgur.com media
+     _ imgur.com image
+
+Gfycat 3rd-party
+  * gyfcat.com
+     _ gyfcat.com media
+
+Medium Third Party
+  * medium.com
+     _ cdn-images-1.medium.com image
+     _ cdn-static-1.medium.com css
+     _ glyph.medium.com css
+     _ cdn-static-1.medium.com script
+     _ medium.com frame
+
+Khan Academy
+ khanacademy.org *
+     _ cdn.kastatic.org css
+     _ cdn.kastatic.org script
+     _ cdn.kastatic.org fetch
+     _ www.khanacademy.org fetch
+     _ noscript-spoof: _ false
+
+Amazon
+  amazon.com *
+     _ media-amazon.com css
+     _ media-amazon.com image
+     _ ssl-images-amazon.com css
+     _ ssl-images-amazon.com image
+     _ ssl-images-amazon.com script
+     _ www.amazon.com script
+
+Hulu - Sign Up
+  hulu.com *
+     _ signup.hulu.com script
+     _ signup.hulu.com fetch
+
+Spotify - Account
+  spotify.com *
+     _ accounts.spotify.com cookie
+     _ accounts.spotify.com fetch
+     _ d2d1dxiu3v1f2i.cloudfront.net css
+     _ d2d1dxiu3v1f2i.cloudfront.net script
+     _ spotify.com cookie
+     _ www.scdn.co css
+     _ www.scdn.co image
+     _ www.spotify.com script
+
+wikiHow
+  wikihow.com *
+     _ www.wikihow.com script
+
+Imgur
+  imgur.com *
+     _ i.imgur.com script
+     _ s.imgur.com script
+
+Hooktube
+  hooktube.com *
+     _ ggpht.com image
+     _ googlevideo.com media
+     _ hooktube.com script
+     _ hooktube.com fetch
+     _ ytimg.com image
+
+Canvas
+  instructure.com *
+     _ canvasservices.evaluationkit.com fetch
+     _ canvasservices.evaluationkit.com frame
+     _ du11hjcvx0uqb.cloudfront.net css
+     _ du11hjcvx0uqb.cloudfront.net image
+     _ du11hjcvx0uqb.cloudfront.net script
+     _ evaluationkit.com css
+     _ evaluationkit.com script
+     _ instructure.com cookie
+     _ instructure.com frame
+     _ instructure.com script
+     _ instructure.com fetch
+     _ instructure-uploads.s3.amazonaws.com css
+     _ instructure-uploads.s3.amazonaws.com fetch
+     _ instructure-uploads.s3.amazonaws.com image
+     _ instructure-uploads.s3.amazonaws.com script
+
+Vim Awesome
+  vimawesome.com *
+     _ vimawesome.com script
+     _ vimawesome.com fetch
+     _ github.com image
+     _ raw.githubusercontent.com image
+
+Unsplash
+  unsplash.com *
+     _ unsplash.com script
+     _ unsplash.com unsplash.com fetch
+
+Vue JS
+  vuejs.org *
+     _ cdn.jsdelivr.net script
+     _ vuejs.org script
+
+Dropbox
+  dropbox.com *
+     _ 127.0.0.1 fetch
+     _ cfl.dropboxstatic.com css
+     _ cfl.dropboxstatic.com image
+     _ cfl.dropboxstatic.com script
+     _ dl.dropboxusercontent.com frame
+     _ www.dropbox.com cookie
+     _ www.dropbox.com script
+     _ www.dropbox.com fetch
+     _ www.dropboxstatic.com script
+     _ www.dropboxstatic.com fetch
+
+Wikipedia
+  wikipedia.org *
+     _ upload.wikimedia.org image
+
+Ars Technica
+  arstechnica.com *
+     _ cdn.arstechnica.net css
+     _ cdn.arstechnica.net image
+     _ cdn.arstechnica.net script
+
+Can I Use...
+  caniuse.com *
+     _ caniuse.com script
+     _ caniuse.com fetch
+
+YouTube
+  youtube.com *
+     _ google.com script
+     _ googlevideo.com fetch
+     _ s.ytimg.com script
+     _ s.ytimg.com fetch
+
+GitHub - Account
+  github.com *
+     _ assets-cdn.github.com css
+     _ assets-cdn.github.com image
+     _ assets-cdn.github.com script
+     _ github-production-upload-manifest-file-7fdce7.s3.amazonaws.com fetch
+     _ github-production-user-asset-6210df.s3.amazonaws.com fetch
+     _ raw.githubusercontent.com fetch
+     _ raw.githubusercontent.com image
+     _ render.githubusercontent.com frame
+     _ render.githubusercontent.com script
+     _ render.githubusercontent.com fetch
+     _ cloud.githubusercontent.com image
+     _ user-images.githubusercontent.com image
+     _ github.com cookie
+     _ github.com fetch
+     _ camo.githubusercontent.com image
+
+jQuery
+  jquery.com *
+     _ api.jquery.com script
+     _ code.jquery.com script
+
+Udemy - Account
+  udemy.com *
+   _ adaptive-streaming.udemy.com fetch
+   _ udemy-assets-on-demand.udemy.com media
+   _ www.udemy.com cookie
+   _ www.udemy.com script
+   _ www.udemy.com fetch
+
+DeviantArt
+  deviantart.com
+     _ 1st-party image inherit
+     _ deviantart.net image allow
+     _ st.deviantart.net css allow
+     _ wp.com image allow
+
+Google
+  google.com *
+     _ 1st-party script
+     _ googleusercontent.com image
+     _ kh.google.com fetch
+     _ ssl.gstatic.com image
+     _ www.google.com cookie
+     _ www.google.com fetch
+     _ www.gstatic.com script
+     _ www.gstatic.com fetch
+     _ www.gstatic.com image
+     _ encrypted-tbn0.gstatic.com image
+    ! Maps
+     _ maps.googleapis.com *
+     _ maps.gstatic.com image
+     _ geo2.ggpht.com image
+    ! Chrome Extensions
+     _ chrome.google.com fetch
+
+PNG2JPG
+  png2jpg.com *
+     _ png2jpg.com script
+     _ png2jpg.com fetch
+
+Unsplash
+  unsplash.com *
+     _ unsplash.com script
+     _ unsplash.com fetch
+
+Gfycat
+  gfycat.com *
+     _ cdn.ampproject.org script
+     _ gfycat.com script
+     _ giant.gfycat.com media
+
+Stackoverflow
+  stackoverflow.com *
+     _ cdn.sstatic.net *
+     _ i.stack.imgur.com image
+     _ stackoverflow.com script
+     _ stackoverflow.com fetch
+    noscript-spoof: _ false
+
+Bitwarden
+  bitwarden.com *
+     _ ajax.googleapis.com script
+     _ bitwarden.com cookie
+     _ js.braintreegateway.com script
+     _ maxcdn.bootstrapcdn.com css
+     _ vault.bitwarden.com script
+     _ vault.bitwarden.com fetch
+
+Stackexchange
+  stackexchange.com *
+     _ cdn.sstatic.net css
+     _ cdn.sstatic.net image
+     _ cdn.sstatic.net script
+     _ ajax.googleapis.com script
+     _ stackexchange.com script
+     _ stackexchange.com fetch
+    noscript-spoof: _ false
+
+CNN
+  cnn.com *
+     _ www.cnn.com fetch
+     _ www.cnn.com script
+     _ www.i.cdn.cnn.com script
+
+Tumblr - Account
+  tumblr.com *
+     _ assets.tumblr.com script
+     _ tumblr.com cookie
+     _ www.tumblr.com fetch
+
+The Gaurdian
+  theguardian.com *
+     _ i.guim.co.uk image
+
+GitLab
+  gitlab.com *
+     _ 1st-party script
+     _ 1st-party fetch
+     _ gitlab-static.net css
+     _ gitlab-static.net image
+     _ gitlab-static.net script
+
+BBC
+  bbc.com *
+     _ ichef.bbci.co.uk image
+     _ mvt.api.bbc.com fetch
+     _ mybbc.files.bbci.co.uk css
+     _ mybbc.files.bbci.co.uk image
+     _ mybbc.files.bbci.co.uk script
+     _ nav.files.bbci.co.uk css
+     _ nav.files.bbci.co.uk image
+     _ nav.files.bbci.co.uk script
+     _ ssl.bbc.co.uk fetch
+     _ static.bbc.co.uk css
+     _ static.bbc.co.uk image
+     _ static.bbc.co.uk script
+     _ static.bbci.co.uk css
+     _ static.bbci.co.uk image
+     _ static.bbci.co.uk script
+     _ www.bbc.co.uk script
+     _ www.bbc.com script
+     _ www.bbc.com fetch
+
+Codecademy
+  codecademy.com *
+     _ maxcdn.bootstrapcdn.com css
+     _ production.cdmycdn.com css
+     _ production.cdmycdn.com image
+     _ production.cdmycdn.com script
+     _ codecademy.com cookie
+
+
+Twitter
+  twitter.com *
+     _ abs-0.twimg.com script
+     _ abs.twimg.com script
+     _ api.twitter.com fetch
+     _ a.twimg.com css
+     _ ma.twimg.com image
+     _ mobile.twitter.com script
+     _ pbs.twimg.com image
+     _ ton.twimg.com script
+     _ twitter.com cookie
+
+Reddit - Account
+  reddit.com *
+     _ a.thumbs.redditmedia.com image
+     _ b.thumbs.redditmedia.com image
+     _ reddit.com cookie
+     _ www.reddit.com script
+     _ www.reddit.com fetch
+     _ www.redditstatic.com css
+     _ www.redditstatic.com image
+     _ www.redditstatic.com script
+
+Reddit - No Account
+  reddit.com *
+     _ a.thumbs.redditmedia.com image
+     _ b.thumbs.redditmedia.com image
+     _ www.reddit.com script
+     _ www.reddit.com fetch
+     _ www.redditstatic.com css
+     _ www.redditstatic.com image
+     _ www.redditstatic.com script
+
+ProtonMail
+  protonmail.com *
+     _ mail.protonmail.com cookie
+     _ mail.protonmail.com script
+     _ mail.protonmail.com fetch
+
+New York Times
+  nytimes.com *
+     _ g1.nyt.com script
+     _ nyt.com css
+     _ nyt.com image
+
+DuckDuckGo
+  duckduckgo.com *
+     _ duckduckgo.com css allow
+     _ duckduckgo.com image allow
+     _ duckduckgo.com script allow
+     _ duckduckgo.com fetch allow
+     _ duckduckgo.com frame allow
+
+Qwant no account
+  qwant.com *
+     _ qwant.com css allow
+     _ qwant.com image allow
+     _ qwant.com script allow
+     _ api.qwant.com fetch allow
+
+Qwant lite no account
+  lite.qwant.com *
+     _ lite.qwant.com css allow
+     _ lite.qwant.com image allow
+     _ lite.qwant.com script allow
+
+Startpage
+  startpage.com *
+     _ startpage.com cookie allow
+     _ startpage.com css allow
+     _ startpage.com image allow
+     _ startpage.com script allow
+     _ startpage.com fetch allow
+     _ ixquick.com image allow
+
+Ixquick
+  ixquick.com *
+     _ ixquick.com cookie allow
+     _ ixquick.com css allow
+     _ ixquick.com image allow
+     _ ixquick.com script allow
+     _ ixquick.com fetch allow
+     _ startpage.com image allow
+
+Bing
+  bing.com *
+     _ bing.com css allow
+     _ bing.com image allow
+     _ bing.com media allow
+     _ bing.com script allow
+     _ bing.com fetch allow
+     _ bing.com frame allow
+     _ bing.net image allow
+         ! Lines with virtualearth are necessary to use bing maps.
+     _ virtualearth.net image allow
+     _ virtualearth.net script allow
+     _ bing.com cookie allow
+     _ live.com cookie allow
+     _ live.com image allow
+     _ live.com script allow
+     _ live.com frame allow
+         ! Next line is necessary if you want to be logged with a Microsoft account while using Bing (from my experience).
+        referrer-spoof: _ false
+
+Yahoo no account
+  yahoo.com *
+     _ yahoo.com css allow
+     _ yahoo.com image allow
+     _ yahoo.com script allow
+     _ yahoo.com fetch allow
+     _ bing.net image allow
+     _ yahooapis.com script allow
+     _ yimg.com css allow
+     _ yimg.com image allow
+     _ yimg.com script allow
+
+Ecosia 
+  ecosia.org *
+     _ ecosia.org cookie allow
+     _ ecosia.org css allow
+     _ ecosia.org image allow
+     _ ecosia.org fetch allow
+     _ cdn.ecosia.org script allow
+     _ www.ecosia.org script allow
+     _ bing.com image allow
+     _ bing.net image allow
+
+Searx
+  searx.me *
+     _ * image allow
+     _ searx.me cookie allow
+     _ searx.me css allow
+     _ searx.me image allow
+     _ searx.me script allow
+
+
